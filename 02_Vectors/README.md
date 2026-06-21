@@ -10,7 +10,7 @@
 |---------------------------------------|---------------------------------------------|
 | `01_basics_of_vectors.cpp`            | Declaration, access, push_back, 2D vectors  |
 | `02_passing_vectors_to_functions.cpp` | By value, by reference, const reference     |
-| `03_two_sum.cpp`                      | Two Sum — brute, hashmap, two pointer       |
+| `03_two_sum.cpp`                      | Two Sum — brute, two pointer                |
 | `04_reverse_of_array.cpp`             | Reverse array in-place — two pointer, STL   |
 | `05_reverse_part_of_array.cpp`        | Reverse only a subarray [l..r]              |
 | `06_rotate_array.cpp`                 | Rotate left/right by k — reverse trick      |
@@ -55,14 +55,16 @@ void function(const vector<int>& v)       // by CONST REF — read-only, no copy
 
 ## 🔧 Algorithm Quick Reference
 
-### Two Sum — HashMap O(n)
+### Two Sum
 ```cpp
-while (left < right) {
-    int sum = nums[left] + nums[right];
-    if (sum == target) return {nums[left], nums[right]};
-    else if (sum < target) left++;
-    else right--;
-}
+for (int i = 0; i < n; i++) {
+    for (int j = i + 1; j < n; j++) {
+        if (nums[i] + nums[j] == target) {
+            return {i, j};
+        }
+    }
+    
+    }
 ```
 
 ### Reverse Array — Two Pointer O(n)
@@ -154,7 +156,7 @@ return mx;
 
 | Problem            | Time       | Space  | Method          | 
 |--------------------|------------|--------|-----------------|
-| Two Sum            | O(n)       | O(n)   | HashMap         |
+| Two Sum            | O(n log n) | O(1)   | Two Pointer     |
 | Reverse Array      | O(n)       | O(1)   | Two Pointer     |
 | Rotate Array       | O(n)       | O(1)   | Reverse Trick   |
 | Sort 0s 1s         | O(n)       | O(1)   | Two Pointer     |
